@@ -20,7 +20,9 @@ import { TableModule } from 'primeng/table';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { NgxApexchartsModule } from 'ngx-apexcharts';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { MessageService } from 'primeng/api';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import { CopyInputComponent } from './components/copy-input/copy-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { TooltipModule } from 'primeng/tooltip';
     SearchBarComponent,
     HeadBarComponent,
     ChartCardComponent,
-    TableComponent
+    TableComponent,
+    CopyInputComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { TooltipModule } from 'primeng/tooltip';
     QRCodeModule,
     ReactiveFormsModule,
     PaginatorModule,
+    ClipboardModule,
     DropdownModule,
     StyleClassModule,
     ButtonModule,
@@ -47,7 +51,7 @@ import { TooltipModule } from 'primeng/tooltip';
     InputSwitchModule,
     TooltipModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
