@@ -18,7 +18,7 @@ copied = false;
     if (isCopied) {
       setTimeout(() => {
         this.copied = false;
-      }, 2000);
+      }, 1000);
     }
   }
 }
