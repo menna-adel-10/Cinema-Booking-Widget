@@ -19,6 +19,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { NgxApexchartsModule } from 'ngx-apexcharts';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NgxApexchartsModule } from 'ngx-apexcharts';
     ButtonModule,
     NgxApexchartsModule,
     InputSwitchModule,
+    TooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,15 +23,15 @@
           <td class="md:flex gap-2">
             <img [src]="item.avatar" alt="avatar" width="30" height="20" class="flex">
             <div class="block">
-              <p class="text-[11.62px] line-clamp-1 hidden lg:block">{{ item.name }}</p>
-              <span class="text-gray text-[9.96px] font-Poppins hidden lg:block">{{item.code}}</span>
+              <p pTooltip={{item.name}} tooltipPosition="bottom" class="text-[11.62px] line-clamp-1 hidden lg:block">{{ item.name }}</p>
+              <span pTooltip={{item.code}} tooltipPosition="bottom" class="text-gray text-[9.96px] font-Poppins hidden lg:block">{{item.code}}</span>
             </div>
           </td>
-          <td class="font-sans text-center">{{ item.ticket }}</td>
-          <td class="font-sans text-center">{{ item.price | currency: 'USD': 'symbol':'1.0-0' }}</td>
-          <td class="justify-center flex-wrap text-center hidden xl:block text-ellipsis">{{ item.address }}</td>
-          <td class="text-center">{{ item.person }}</td>
-          <td class="text-center">{{ item.available }}</td>
+          <td pTooltip={{item.ticket}} tooltipPosition="bottom" class="font-sans text-center">{{ item.ticket }}</td>
+          <td pTooltip={{item.price}} tooltipPosition="bottom" class="font-sans text-center">{{ item.price | currency: 'USD': 'symbol':'1.0-0' }}</td>
+          <td pTooltip="صيدناوي مول, مول العرب" tooltipPosition="bottom" class="justify-center flex-wrap text-center hidden xl:block text-ellipsis">{{ item.address }}</td>
+          <td pTooltip={{item.person}} tooltipPosition="bottom" class="text-center">{{ item.person }}</td>
+          <td pTooltip={{item.available}} tooltipPosition="bottom" class="text-center">{{ item.available }}</td>
           <td class="inline-block md:inline-flex gap-3 text-center">
             <img class="bg-bgPrimary p-2 rounded-lg" [src]="item.iconR" alt="icon">
             <div class="hidden md:block">
@@ -39,7 +39,7 @@
               <span class="text-gray font-sans text-[12px] float-right line-clamp-1">{{item.size}} .
                 {{item.format}}</span>
             </div>
-            <i
+            <i pTooltip="تحميل" tooltipPosition="bottom"
               class="fa-regular fa-circle-down cursor-pointer text-primary text-lg hover:text-opacity-85 duration-300 transition-all"></i>
           </td>
         </tr>

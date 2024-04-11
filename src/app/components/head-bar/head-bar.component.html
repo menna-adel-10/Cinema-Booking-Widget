@@ -1,13 +1,13 @@
 <div class="justify-between flex p-4">
-  <p-button dir="rtl"
+  <p-button dir="ltr" pTooltip="تعديل" tooltipPosition="bottom"
     class="bg-gray5 text-[12px] font-medium text border border-gray2 rounded-md p-1 hover:bg-gray4 duration-300 transition-all"
-    label="تعديل">
+    > <p class="hidden sm:flex">تعديل</p>
     <img class="mx-2" src="/assets/img/svgs/edit.svg" alt="edit">
   </p-button>
 
   <div class="flex items-center gap-2">
     <h1 class="font-bold text-[16px]">تذكرة رقم #2342</h1>
-    <p-button class="flex bg-gray4 p-2 rounded-lg hover:bg-gray2 duration-300 transition-all">
+    <p-button pTooltip="رجوع" tooltipPosition="bottom" class="flex bg-gray4 p-2 rounded-lg hover:bg-gray2 duration-300 transition-all">
       <img src="/assets/img/svgs/arrow-right.svg" alt="arrow-right">
     </p-button>
   </div>
