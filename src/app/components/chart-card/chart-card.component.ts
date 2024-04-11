@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from "@angular/core";
-import { ApexAxisChartSeries, ApexChart } from "ng-apexcharts";
-import { debounceTime, fromEvent } from "rxjs";
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from "@angular/core";
+
 
 
 @Component({

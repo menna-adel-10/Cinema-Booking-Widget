@@ -27,7 +27,3 @@ body {
   background-color: var(--switch-on-background-color);
 }
 
-.p-datatable-bordered td,
-.p-datatable-bordered th {
-    border-bottom: 1px solid #F3F3F5;
-}
