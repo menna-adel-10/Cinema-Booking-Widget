@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { ApexAxisChartSeries, ApexChart } from "ng-apexcharts";
-
+import { debounceTime, fromEvent } from "rxjs";
 
 
 @Component({
@@ -8,22 +8,76 @@ import { ApexAxisChartSeries, ApexChart } from "ng-apexcharts";
   templateUrl: './chart-card.component.html'
 })
 export class ChartCardComponent implements OnInit{
+   @ViewChild('chartContainer') chartContainer!: ElementRef;
 
-  chartSeries: ApexAxisChartSeries = [
-    {
-      name: 'Series 1',
-      data: [200, 150, 250, 50, 110]
+  constructor(private renderer: Renderer2) {}
+
+ chartOptions: any = {
+    chart: {
+     type: 'area',
+     toolbar: {
+        show: false
+     },
+      height: 250,
+    },
+    series: [{
+      name: 'استخدام',
+      data: [90, 140, 30, 100, 250, 200, 210, 150, 50, 110, 85, 190],
+   }],
+   dataLabels: {
+     enabled: false
+    },
+   tooltip: {
+     enabled: true,
+     theme: 'dark',
+   },
+    colors: ['#8A74F9'],
+    stroke: {
+      curve: 'smooth'
+   },
+   xaxis: {
+      categories: [
+        'ديسمبر',
+        'نوفمبر',
+        'أكتوبر',
+        'سبتمبر',
+        'أغسطس',
+        'يوليو',
+        'يونيو',
+        'مايو',
+        'أبريل',
+        'مارس',
+        'فبراير',
+        'يناير',
+      ],
+     labels: {
+      show: true,
+      style: {
+          fontFamily: 'Neo Sans Arabic',
+          fontWeight: 500,
+          colors: '#9291A5',
+
+      }
     }
-  ];
-
-  chartDetails: ApexChart = {
-    type: 'area',
-    toolbar: {
-      show: true
     }
   };
 
-  ngOnInit(): void {
+
+ ngOnInit(): void {
+    this.toggleXAxisLabels();
+
+    this.renderer.listen('window', 'resize', () => {
+      this.toggleXAxisLabels();
+    });
+  }
+
+  toggleXAxisLabels(): void {
+    if (window.innerWidth <= 668) {
+      this.chartOptions.xaxis.labels.show = false;
+    } else {
+      this.chartOptions.xaxis.labels.show = true;
+    }
 
   }
+
 }

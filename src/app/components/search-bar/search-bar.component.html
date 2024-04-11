@@ -1,8 +1,8 @@
 <div dir="rtl" class="flex items-center justify-between p-4">
-  <div class="flex items-center gap-4 px-2">
+  <div class="flex items-center gap-4">
     <h3 class="text-[16px] font-semibold text-[#1C1C28]">مبيعات التذاكر</h3>
     <app-search-input></app-search-input>
-    <p-button class="flex bg-white border border-gray2 p-2 rounded-lg hover:bg-gray4 duration-300 transition-all">
+    <p-button class="hidden md:flex bg-white border border-gray2 p-2 rounded-lg hover:bg-gray4 duration-300 transition-all">
       <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M14.6666 4.83334H10.6666C10.3933 4.83334 10.1666 4.60668 10.1666 4.33334C10.1666 4.06001 10.3933 3.83334 10.6666 3.83334H14.6666C14.94 3.83334 15.1666 4.06001 15.1666 4.33334C15.1666 4.60668 14.94 4.83334 14.6666 4.83334Z"
@@ -24,7 +24,7 @@
           fill="#8B8B8B" />
       </svg>
     </p-button>
-    <p-button class="flex bg-white border border-gray2 p-2 rounded-lg hover:bg-gray4 duration-300 transition-all">
+    <p-button class="hidden md:flex bg-white border border-gray2 p-2 rounded-lg hover:bg-gray4 duration-300 transition-all">
       <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M9.03316 4.97998C9.15983 4.97998 9.28651 4.93333 9.38651 4.83333L11.5132 2.70667L13.6399 4.83333C13.8332 5.02667 14.1532 5.02667 14.3465 4.83333C14.5398 4.64 14.5398 4.32 14.3465 4.12667L11.8665 1.64665C11.7732 1.55331 11.6465 1.5 11.5132 1.5C11.3798 1.5 11.2532 1.55331 11.1598 1.64665L8.67985 4.12667C8.48652 4.32 8.48652 4.64 8.67985 4.83333C8.77985 4.93333 8.9065 4.97998 9.03316 4.97998Z"
@@ -43,14 +43,18 @@
   </div>
 
   <div class="flex items-center justify-between gap-4">
-    <p-inputSwitch dir="ltr" class="switch" [(ngModel)]="checked"></p-inputSwitch>
-    <span class="hidden md:block items-center justify-center text-[#9C9D9F] -mt-2">
+    <p-inputSwitch dir="ltr" class="switch hidden md:block" [(ngModel)]="checked"></p-inputSwitch>
+    <span class="hidden lg:block items-center justify-center text-[#9C9D9F] -mt-2">
       {{ checked ? 'مفعلة' : 'غير مفعلة' }}
     </span>
     <p-button
-      class="bg-primary flex-nowrap overflow-hidden text-ellipsis text-white text-[12px] font-normal duration-300 transition-all rounded-md p-3 hover:bg-opacity-90"
-      label=''>
-      حجز تذاكر جديدة
+      class="bg-primary hidden md:block flex-nowrap overflow-hidden text-ellipsis text-white text-[12px] font-normal duration-300 transition-all rounded-md p-3 hover:bg-opacity-90"
+      label='
+      حجز تذاكر جديدة'>
+    </p-button>
+    <p-button
+      class="bg-primary block md:hidden flex-nowrap overflow-hidden text-ellipsis text-white text-[14.5px] font-normal duration-300 transition-all rounded-md p-3 px-4 hover:bg-opacity-90"
+      label='+'>
     </p-button>
   </div>
 </div>
