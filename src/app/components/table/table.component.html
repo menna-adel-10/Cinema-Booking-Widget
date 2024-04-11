@@ -1,56 +1,53 @@
 <div dir="rtl" class="w-full rounded-lg bg-white p-3">
-  <p-table [value]="data" class="rounded-lg">
-
-    <ng-template pTemplate="header" class="header">
-      <tr class="rounded-lg font-Neo text-[13.28px]">
-        <th class="text-gray font-medium text-center">#</th>
-        <th class="text-gray font-medium text-center">المستخدم</th>
-        <th class="text-gray font-medium text-center">رقم التذكرة</th>
-        <th class="text-gray font-medium text-center">قيمة التذكرة <p-sortIcon class="text-black"
-            field="price"></p-sortIcon></th>
-        <th class="text-gray font-medium text-center">السينمات</th>
-        <th class="text-gray font-medium text-center">عدد الاشخاص</th>
-        <th class="text-gray font-medium text-center">عدد مرات الشراء</th>
-        <th class="text-gray font-medium text-center">التذكرة</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" class="body" let-item>
-      <tr class="font-Neo text-[13.28px] font-medium text-[#1C1C28] hover:bg-gray4 duration-500 transition-all">
-        <td class="font-sans">{{ item.id }}</td>
-        <td class="flex gap-2">
-          <img [src]="item.avatar" alt="avatar" width="30" height="30">
-          <div class="block">
-            <p class="text-[11.62px] line-clamp-1">{{ item.name }}</p>
-            <span class="text-gray text-[9.96px] font-Poppins">{{item.code}}</span>
-          </div>
-        </td>
-        <td class="font-sans text-center">{{ item.ticket }}</td>
-        <td class="font-sans text-center">{{ item.price | currency: 'USD': 'symbol':'1.0-0' }}</td>
-        <td class="line-clamp-1 text-center">{{ item.address }}</td>
-        <td class="text-center">{{ item.person }}</td>
-        <td class="text-center">{{ item.available }}</td>
-        <td class="flex gap-3 p-2 text-center">
-          <img class="bg-bgPrimary p-2 rounded-lg" [src]="item.iconR" alt="icon">
-          <div class="hidden md:block">
-            <p class="line-clamp-1">{{item.info}}</p>
-            <span class="text-gray font-sans text-[12px] float-right line-clamp-1">{{item.size}} .
-              {{item.format}}</span>
-          </div>
-          <i
-            class="fa-regular fa-circle-down cursor-pointer text-primary text-lg hover:text-opacity-85 duration-300 transition-all"></i>
-        </td>
-      </tr>
-    </ng-template>
-
-  </p-table>
-  <div class="justify-between flex items-center">
-    <div class="flex items-center text-[12px] font-medium">
-      <p>عرض
-        <p-dropdown [options]="pages" [(ngModel)]="selectedPage" optionLabel="rows" [showClear]="true"
-          placeholder="5"></p-dropdown>
-        من أصل 250
-      </p>
+  <div class="card">
+    <p-table [value]="data" dataKey="code" class="rounded-lg" responsiveLayout="scroll" [breakpoint]="'960px'"
+      [tableStyle]="{'min-width': '50rem'}" styleClass="p-datatable-bordered">
+      <ng-template pTemplate="header" let-columns>
+        <tr class="w-full justify-center rounded-lg font-Neo text-[13.28px]">
+          <th class="text-gray font-medium text-center">#</th>
+          <th class="text-gray font-medium text-center">المستخدم</th>
+          <th class="text-gray font-medium text-center">رقم التذكرة</th>
+          <th class="text-gray font-medium text-center">قيمة التذكرة <p-sortIcon class="text-black"
+              field="price"></p-sortIcon>
+          </th>
+          <th class="text-gray font-medium text-center">السينمات</th>
+          <th class="text-gray font-medium text-center">عدد الاشخاص</th>
+          <th class="text-gray font-medium text-center">عدد مرات الشراء</th>
+          <th class="text-gray font-medium text-center">التذكرة</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" class="flex" let-item let-columns="cols">
+        <tr
+          class="w-full font-Neo text-[13.28px] font-medium text-[#1C1C28] hover:bg-gray4 duration-500 transition-all">
+          <td class="text-center">{{item.id}}</td>
+          <td class="text-center">{{item.name}}</td>
+          <td class="font-sans text-center">{{ item.ticket }}</td>
+          <td class="font-sans text-center">{{ item.price | currency: 'USD': 'symbol':'1.0-0' }}</td>
+          <td class="justify-center flex-wrap text-center">{{ item.address }}</td>
+          <td class="text-center">{{ item.person }}</td>
+          <td class="text-center">{{ item.available }}</td>
+          <td class="inline-block md:inline-flex gap-3 text-center">
+            <img class="bg-bgPrimary p-2 rounded-lg" [src]="item.iconR" alt="icon">
+            <div class="hidden md:block">
+              <p class="line-clamp-1">{{item.info}}</p>
+              <span class="text-gray font-sans text-[12px] float-right line-clamp-1">{{item.size}} .
+                {{item.format}}</span>
+            </div>
+            <i
+              class="fa-regular fa-circle-down cursor-pointer text-primary text-lg hover:text-opacity-85 duration-300 transition-all"></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div class="justify-between flex items-center">
+      <div class="flex items-center text-[12px] font-medium">
+        <p>عرض
+          <p-dropdown [options]="pages" [(ngModel)]="selectedPage" optionLabel="rows" [showClear]="true"
+            placeholder="20"></p-dropdown>
+          من أصل 250
+        </p>
+      </div>
+      <app-paginator></app-paginator>
     </div>
-    <app-paginator></app-paginator>
   </div>
 </div>

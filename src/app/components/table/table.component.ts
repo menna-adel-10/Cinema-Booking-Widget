@@ -4,7 +4,10 @@ import { Product } from '../../../assets/data';
 interface Page {
   rows: number;
 }
-
+interface Column {
+    field: string;
+    header: string;
+}
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html'
@@ -12,7 +15,7 @@ interface Page {
 export class TableComponent implements OnInit{
   data = Product;
   pages: Page[] | undefined;
-
+  cols!: Column[];
 
   selectedPage: Page | undefined;
 
