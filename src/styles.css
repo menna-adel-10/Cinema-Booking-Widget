@@ -11,6 +11,7 @@ body {
   color: #1C1C28;
   background-color: #f3f5f7;
   font-family: 'Neo Sans Arabic', sans-serif;
+  outline: none;
 }
 
 .switch {
@@ -25,4 +26,10 @@ body {
 
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
   background-color: var(--switch-on-background-color);
+}
+
+*:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
 }

@@ -20,9 +20,9 @@ import { TableModule } from 'primeng/table';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { NgxApexchartsModule } from 'ngx-apexcharts';
 import { TooltipModule } from 'primeng/tooltip';
-import { MessageService } from 'primeng/api';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { CopyInputComponent } from './components/copy-input/copy-input.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +51,7 @@ import { CopyInputComponent } from './components/copy-input/copy-input.component
     InputSwitchModule,
     TooltipModule,
   ],
-  providers: [MessageService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
