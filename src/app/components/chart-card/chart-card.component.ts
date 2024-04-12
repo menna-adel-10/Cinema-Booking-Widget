@@ -17,7 +17,7 @@ export class ChartCardComponent implements OnInit{
      toolbar: {
         show: false
      },
-      height: 250,
+     height: 200,
     },
     series: [{
       name: 'استخدام',
@@ -55,10 +55,14 @@ export class ChartCardComponent implements OnInit{
           fontFamily: 'Neo Sans Arabic',
           fontWeight: 500,
           colors: '#9291A5',
-
       }
     }
-    }
+   },
+   yaxis: {
+     labels: {
+       show: false
+     }
+   }
   };
 
 
